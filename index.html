@@ -10,16 +10,34 @@
   <link rel="stylesheet" href="./style.css">
 </head>
   
-   <style>
+  <style>
+    /* CSS style for fade and slide effect */
+    .fade-slide {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .fade-slide.fade-slide-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <script>
+    // JavaScript code to trigger the fade and slide effect
+    window.addEventListener('DOMContentLoaded', function() {
+      var element = document.getElementById('target-element');
+      element.classList.add('fade-slide-show');
+    });
+  </script>
+  
+  <style>
     /* CSS style to remove underlines from links */
     a {
       text-decoration: none;
     }
   </style>
-</head>
-<body>
- 
-</body>
+
   <meta charset="UTF-8">
 <body class="wrapper container">
   <header class="header">
@@ -63,7 +81,7 @@
               
             <title>About Me</title>
    
-          </head>
+          <head>
           <body style="background-color:white">
           
 
@@ -122,7 +140,7 @@
                     <div style="float:center;">
                       <table width="39%" style="background-color:black; margin-left:auto; margin-right:auto; padding-left:30px">
                         
-                         <script src="script.js"></script>
+                         
                       <body>
                         <tr>
                         <td colspan="2" align="center">
@@ -270,6 +288,19 @@
                                                                       
                                                                       
 
+
+
+
+
+                
+              
+              
+
+
+   
+
+
+     
 
 
 
