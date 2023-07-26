@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form with Validation</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <span class="error" id="nameError"></span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error" id="emailError"></span>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+        <span class="error" id="subjectError"></span>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <span class="error" id="messageError"></span>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactForm');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const subjectInput = document.getElementById('subject');
+  const messageInput = document.getElementById('message');
+
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    if (validateForm()) {
+      // You can add code here to handle the form submission (e.g., sending data to a server)
+      alert('Form submitted successfully!');
+      contactForm.reset();
+    }
+  });
+
+  function validateForm() {
+    let isValid = true;
+
+    // Reset error messages
+    const errorElements = document.getElementsByClassName('error');
+    for (let i = 0; i < errorElements.length; i++) {
+      errorElements[i].textContent = '';
+    }
+
+    if (nameInput.value.trim() === '') {
+      displayError(nameInput, 'Name is required');
+      isValid = false;
+    }
+
+    if (emailInput.value.trim() === '') {
+      displayError(emailInput, 'Email is required');
+      isValid = false;
+    } else if (!isValidEmail(emailInput.value.trim())) {
+      displayError(emailInput, 'Invalid email format');
+      isValid = false;
+    }
+
+    if (subjectInput.value.trim() === '') {
+      displayError(subjectInput, 'Subject is required');
+      isValid = false;
+    }
+
+    if (messageInput.value.trim() === '') {
+      displayError(messageInput, 'Message is required');
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
+  function displayError(inputElement, message) {
+    const errorElement = inputElement.nextElementSibling;
+    errorElement.textContent = message;
+  }
+
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+});
+
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase
+    <script src="./mail.js"></script>
+
+  
+</body>
+</html>
