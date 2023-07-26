@@ -8,3 +8,9 @@ const firebaseConfig = {
     appId: "1:6339012929:web:be0a56e091b5292a7199c0",
     measurementId: "G-JW2Q1QKPZ2"
   };
+//initialize firebase
+firebase.initializeApp(firebaseConfig);
+
+//reference your database
+cnst my landing pageDB = firebase.database().ref('my landing page')
+
