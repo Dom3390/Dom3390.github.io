@@ -1,3 +1,4 @@
+// Write your code here
 const items = document.querySelectorAll('.item')
 
 const options = {
