@@ -12,5 +12,21 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 //reference your database
-cnst my landing pageDB = firebase.database().ref('my landing page')
+var contactFormDB = firebase.database().ref('contactForm')
 
+document.getElementById("contactform").addEventListener("submit", submitform);
+
+function submitForm(e){
+    e.preventDefault();
+
+    var name = getElementVal("name");
+    var emailid = getElementVal ("emailid");
+    var msgContent = getElementVal("msgContent");
+
+console.log(name,emailid,msgContent);
+}
+
+const getElementVal = (id) => {
+    return document.getElementbyid(id).value;
+};
+    
