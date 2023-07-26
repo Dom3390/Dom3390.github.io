@@ -23,9 +23,11 @@ function submitForm(e){
     var emailid = getElementVal ("emailid");
     var msgContent = getElementVal("msgContent");
 
-console.log(name,emailid,msgContent);
 }
-
+const saveMessages = (name, emailid, msgContent) => {
+    var newContactForm = contactFormDB.push();
+    
+}
 const getElementVal = (id) => {
     return document.getElementbyid(id).value;
 };
