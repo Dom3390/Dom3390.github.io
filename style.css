@@ -1,6 +1,6 @@
 body {
 
-  background-color:#ffbf00;
+  background-color:#060201;
 }
 h1 {
   color:#ffbf00;
@@ -168,6 +168,25 @@ grid-area: main;
   font-weight: bold;
 }
 
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+}
+
+
 
 
 
@@ -178,12 +197,6 @@ grid-area: main;
 </style>
 </head>
 <body>
-
-
-
-
-
-
 
 
 
