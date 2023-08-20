@@ -1,0 +1,62 @@
+// Get the necessary elements from the DOM
+var list = document.getElementById("list");
+var addBtn = document.getElementById("addBtn");
+var removeBtn = document.getElementById("removeBtn");
+
+// Add event listener to the "Add Item" button
+addBtn.addEventListener("click", function() {
+  // Create a new list item element
+  var newItem = document.createElement("li");
+  newItem.textContent = "New Item";
+
+  // Add the new item to the list
+  list.appendChild(newItem);
+});
+
+// Add event listener to the "Remove Item" button
+removeBtn.addEventListener("click", function() {
+  // Get the last child (latest item) of the list
+  var lastItem = list.lastElementChild;
+
+  // Check if there's any item to remove
+  if (lastItem) {
+    // Remove the last item from the list
+    list.removeChild(lastItem);
+  }
+});
+
+// Write your code here
+const items = document.querySelectorAll('.item')
+
+const options = {
+  threshold: 0.5
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('slide-in');
+    }
+  });
+}, options)
+
+items.forEach(item => {
+  observer.observe(item);
+})
+
+// Inside the click event handler
+items.forEach(function(item) {
+    var listItem = document.createElement("li");
+    listItem.textContent = item;
+    listItem.className = "sort-animation"; // Add the animation class
+    sortedList.appendChild(listItem);
+});
+
+items.forEach(function(item, index) {
+    var listItem = document.createElement("li");
+    listItem.textContent = item;
+    listItem.style.setProperty("--animation-delay", index * 0.1 + "s"); // Staggered delay
+    sortedList.appendChild(listItem);
+});
+
+

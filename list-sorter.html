@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>List Sorter</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+ 
+    <h1> A List put together :)</h1>
+
+    <form id="inputForm">
+        <label for="inputText">Enter a list of items (comma-separated):</label>
+        <input type="text" id="inputText" name="inputText">
+        <button type="button" id="submitButton">Sort</button>
+    </form>
+
+    <div id="outputArea">
+        <h2>Sorted List:</h2>
+        <ul id="sortedList">
+            <!-- Sorted list items will be displayed here -->
+        </ul>
+    </div>
+  
+ <section  class="item right">
+  
+  <div class="container">
+        <h1>my favorite Things!</h1>
+        <label for="sortSelect">Sort by:</label>
+        <select id="sortSelect">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+        <ul id="sortable-list">
+            <li>Item 1.Cars: BMW X6, Lambourghini Truck, Dodge Durango SRT, Nissan Skyline</li>
+            <li>Item 2. Gaming Consoles: Xbox Series X, Nintendo Switch Oled, Meta Quest 2</li>
+            <li>Item 3. Foods: Chicken, Pizza, Seafood, Pasta, Steak</li>
+            <li>Item 4. Cinema Genres: Horror, Comedy, Action, Suspense</li>
+        </ul>
+    </div>
+  
+  <style>
+    /* CSS style for fade and slide effect */
+    .fade-slide {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .fade-slide.fade-slide-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+    <script>
+        document.getElementById("submitButton").addEventListener("click", function() {
+            var inputText = document.getElementById("inputText").value;
+            var sortedList = document.getElementById("sortedList");
+
+            // Split input text into an array of items
+            var items = inputText.split(",").map(item => item.trim());
+
+            // Sort the items
+            items.sort();
+
+            // Clear previous list
+            sortedList.innerHTML = "";
+
+            // Add sorted items to the list
+            items.forEach(function(item) {
+                var listItem = document.createElement("li");
+                listItem.textContent = item;
+                sortedList.appendChild(listItem);
+            });
+        });
+    </script>
+</body>
+</html>
