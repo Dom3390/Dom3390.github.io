@@ -34,7 +34,141 @@
             </div>
         </div>
     </nav> 
-  
+
+   <style>
+    body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+    ul{
+  color: gold;
+}
+
+li {
+    /* ... other styles ... */
+    transition: transform 0.3s;
+}
+
+.sort-animation {
+    transform: translateX(0); /* Initial position */
+}
+
+ button:hover {
+  background-color:#0056b3;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*,*::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+{
+  font-family: "Poppins", sans-serif;
+}
+
+
+.label{
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+.item > h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+
+.item >{
+  text-align: center;
+}
+
+
+.left {
+  transform-origin: left center;
+  transform: translateX(-50%);
+}
+
+
+.right > h1{
+  transform-origin: right center;
+  transform: translateX(50%);
+}
+
+
+.slide-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.header {
+grid-area:header;
+}
+.navbar{
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+}
+
+  </style>  
   
     <title>Contact Us!</title>
   <link rel="stylesheet" href="styles.css">
@@ -65,7 +199,74 @@
       </div>
       <button type="submit">Submit</button>
     </form>
-  </div>
+  </div
+
+   <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactForm');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const subjectInput = document.getElementById('subject');
+  const messageInput = document.getElementById('message');
+
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    if (validateForm()) {
+      // You can add code here to handle the form submission (e.g., sending data to a server)
+      alert('Form submitted successfully!');
+      contactForm.reset();
+    }
+  });
+
+  function validateForm() {
+    let isValid = true;
+
+    // Reset error messages
+    const errorElements = document.getElementsByClassName('error');
+    for (let i = 0; i < errorElements.length; i++) {
+      errorElements[i].textContent = '';
+    }
+
+    if (nameInput.value.trim() === '') {
+      displayError(nameInput, 'Name is required');
+      isValid = false;
+    }
+
+    if (emailInput.value.trim() === '') {
+      displayError(emailInput, 'Email is required');
+      isValid = false;
+    } else if (!isValidEmail(emailInput.value.trim())) {
+      displayError(emailInput, 'Invalid email format');
+      isValid = false;
+    }
+
+    if (subjectInput.value.trim() === '') {
+      displayError(subjectInput, 'Subject is required');
+      isValid = false;
+    }
+
+    if (messageInput.value.trim() === '') {
+      displayError(messageInput, 'Message is required');
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
+  function displayError(inputElement, message) {
+    const errorElement = inputElement.nextElementSibling;
+    errorElement.textContent = message;
+  }
+
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+});
+
+  </script>
+
 
   <script src="script.js"></script>
 </body>
