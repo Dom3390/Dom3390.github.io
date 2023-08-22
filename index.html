@@ -82,84 +82,70 @@
           <center>
 
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6HtlpZDMNXPG5jV76RoYy6?utm_source=generator&theme=0" width="50%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay;picture-in-picture" loading="lazy"></iframe>
-          </header>
+        
   </header>
-    
-    <style> /* Reset default styles */
-body, h1, h2, h3, p {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  
-  font-family: Arial, sans-serif;
-  background-color: #052331;
-}
-
-/* Cover header styles */
-.cover-header {
-  background-color: #052331;
-  color: gold;
-  text-align: center;
-  padding: 5rem 0;
-}
-
-.cover-header h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.cover-header h2 {
-  font-size: 2rem;
-}
-
-/* Cover section styles */
-.cover-section {
-  background-color:#494B4D;
-  text-align: center;
-  padding: 4rem 0;
-}
-
-.cover-section h2 {
-  color:gold;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.cover-section p {
-  color: ;
-  margin-bottom: 2rem;
-}
-
-/* Button styles */
-.btn {
-  display: inline-block;
-  background-color: gold;
-  color: gold;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-/* Cover footer styles */
-.cover-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #444;
-  color: #fff;
-}
-    </style>
   
   <section class="cover-section">
-    <h2>Preferred Favorite Vehicles</h2>
+    <h2>My HomeTown</h2>
     <p>Explore my content</p>
-    <a href="about.us.html" class="btn">Click Here!</a>
+    <a href="#content" class="btn">Get Started</a>
+    <center>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPqh90Bwnxic11PFqhJpJB7gPG2Sg4I2o&callback=initMap&v=weekly"
+      defer></script>
+      <div id="map" style="width: 600px; height: 400px;"></div>
+<script>
+  
+  function initMap() {
+    
+    const coordinates = { lat: 39.290386, lng: -76.612190 };
+           
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 13,
+                center: coordinates,
+            });
+           
+const marker = new google.maps.Marker({
+               position: coordinates,
+               map: map,
+           });
+           const circle = new google.maps.Circle({
+                    strokeColor: "blue",
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: "#FFF",
+                    fillOpacity: 0.5,
+                    map,
+                    center: coordinates,
+                    radius: 600
+             
+    
+ 
+  });
+    
+  }
+   
+
+window.initMap = initMap;
+  
+  
+    
+
+
+  
+ 
+  
+  
+  
+  
+  
+             
+           
+</script>
   </section>
   
   <footer class="cover-footer">
     <p>Copyright (©)  2023. Dominique Foster</p>
   </footer>
-    
 </body>
 </html>
