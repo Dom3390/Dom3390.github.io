@@ -175,24 +175,6 @@ grid-area: main;
     text-align: center;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin: 5px 0;
-}
-
-
-
-
-
-
-
-
 
 </style>
 </head>
