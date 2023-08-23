@@ -168,6 +168,17 @@ grid-area: main;
   font-weight: bold;
 }
 
+.header {
+grid-area:header;
+}
+.navbar{
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+}
+
 
 
 
